@@ -150,8 +150,8 @@ local op_symbol = {
    div    = " / ",   mod     = " % ",   pow     = " ^ ",
    concat = " .. ",  eq      = " == ",  ne      = " ~= ",
    lt     = " < ",   le      = " <= ",  ["and"] = " and ",
-   ["or"] = " or ",  ["not"] = "not ",  len     = "# ",
-   ["unm"] = " - ",
+   ["or"] = " or ",  ["not"] = "not ",  len     = "#",
+   ["unm"] = "-",
 }
 
 --------------------------------------------------------------------------------
@@ -432,7 +432,7 @@ function M:Call (node, f)
    self:acc  (wrap and "(" or "")
    self:node (f)
    self:acc  (wrap and ")" or "")
-   self:acc  (parens and " (" or  " ")
+   self:acc  (parens and "(" or  " ")
    self:list (node, ", ", 2) -- skip `f'.
    self:acc  (parens and ")")
 end
